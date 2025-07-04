@@ -1,0 +1,283 @@
+/* Custom Select - Complete Width Fix */
+
+/* Ensure the container takes full width */
+.customSelect {
+    position: relative;
+    width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* Force the select header to take full width */
+.selectHeader {
+    width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+    user-select: none;
+    box-sizing: border-box;
+    min-height: 3.5rem;
+}
+
+/* Fix for flex container issues */
+.selectHeader * {
+    box-sizing: border-box;
+}
+
+.selectHeader:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+}
+
+.selectHeader.open {
+    border-color: var(--primary);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Disabled state */
+.selectHeader.disabled {
+    background-color: var(--background-disabled, #f3f4f6);
+    color: var(--text-disabled, #9ca3af);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.selectHeader.disabled:hover {
+    border-color: var(--border-color);
+}
+
+/* Error state for custom select */
+.selectHeader.errorInput {
+    border-color: var(--err-color) !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+    background-color: rgba(220, 38, 38, 0.02);
+}
+
+.selectHeader.errorInput:hover,
+.selectHeader.errorInput:focus {
+    border-color: var(--err-color) !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
+}
+
+.selectHeader.errorInput.open {
+    border-color: var(--err-color) !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Shake animation for custom select */
+.selectHeader.shake {
+    animation: shake 0.6s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-8px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(8px);
+    }
+}
+
+/* Selected value - ensure it doesn't overflow */
+.selectedValue {
+    flex: 1 1 auto;
+    text-align: left;
+    color: var(--foreground);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 0.5rem;
+    min-width: 0; /* Important for flex shrinking */
+}
+
+.selectedValue:empty::before {
+    content: attr(data-placeholder);
+    color: var(--text-secondary);
+}
+
+/* Error state for placeholder text */
+.customSelect.hasError .selectedValue {
+    color: var(--foreground);
+}
+
+/* Arrow styling */
+.arrow {
+    color: var(--text-secondary);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 12px;
+    height: 8px;
+}
+
+.arrow.arrowUp {
+    transform: rotate(180deg);
+}
+
+/* Error state for arrow */
+.customSelect.hasError .arrow {
+    color: var(--err-color);
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--background);
+    border: 2px solid var(--primary);
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Error dropdown styling */
+.dropdown.errorDropdown {
+    border-color: var(--err-color);
+}
+
+.optionsList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.option {
+    padding: 1rem;
+    cursor: pointer;
+    color: var(--foreground);
+    transition: background-color 0.2s;
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.option:last-child {
+    border-bottom: none;
+}
+
+.option:hover {
+    background-color: var(--primary-light);
+}
+
+.option.selected {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+.option.selected:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Field error styling */
+.fieldError {
+    color: var(--err-color);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+
+/* Form group overrides for CustomSelect */
+.formGroup .customSelect {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+}
+
+/* Ensure form groups don't constrain CustomSelect */
+.formGroup:has(.customSelect) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup:has(.customSelect) > * {
+    width: 100%;
+}
+
+/* Grid layout fixes */
+.form .formGroup:has(.customSelect) {
+    grid-column: 1 / -1; /* Take full width in grid */
+}
+
+/* Specific overrides for known layout issues */
+.formGroup select,
+.formGroup .customSelect {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+}
+
+/* Scrollbar styling */
+.dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.dropdown::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Media queries for responsive behavior */
+@media (max-width: 768px) {
+    .selectHeader {
+        padding: 0.875rem;
+        font-size: 0.875rem;
+        min-height: 3rem;
+    }
+    
+    .option {
+        padding: 0.875rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .selectHeader {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        min-height: 2.75rem;
+    }
+    
+    .option {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}

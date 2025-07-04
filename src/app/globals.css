@@ -1,0 +1,119 @@
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Main colors */
+  --primary: #1a73e8;
+  --primary-dark: #1557b0;
+  --primary-light: #4285f4;
+  --primary-rgb: 26, 115, 232;
+  --secondary: #f8f9fa;
+
+  /* Background colors */
+  --background: #ffffff;
+  --background-secondary: #f8f9fa;
+  --background-tertiary: #e8eaed;
+  --background-disabled: #f3f4f6;
+  --hover-background: #f1f3f4;
+
+  /* Text colors */
+  --foreground: #202124;
+  --text-secondary: #5f6368;
+  --text-light: #ffffff;
+  --text-disabled: #9ca3af;
+
+  /* Accent colors */
+  --accent-blue: #1a73e8;
+  --accent-success: #34a853;
+  --accent-success-dark: #2d9248;
+  --accent-success-light: #e6f4ea;
+  --accent-success-lighter: #f0f8f2;
+  --accent-warning: #fbbc04;
+  --accent-error: #ea4335;
+  --accent-danger: #ea4335;
+  --accent-error-light: #fce8e6;
+  --err-color: #dc2626;
+  --err-light: #fecaca;
+  --err-lighter: #fef2f2;
+  --color-success-light: #e6f4ea;
+  --color-success-dark: #2d9248;
+  --color-error-light: #fce8e6;
+
+  /* Status colors */
+  --verified-bg: #e6f4ea;
+  --verified-text: #34a853;
+  --unverified-bg: #fef0f0;
+  --unverified-text: #ea4335;
+  --active-bg: #e6f4ea;
+  --active-text: #34a853;
+  --inactive-bg: #fef0f0;
+  --inactive-text: #ea4335;
+
+  /* Card and border colors */
+  --card-background: #ffffff;
+  --border-color: #dadce0;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdc1c6;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #dadce0 transparent;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

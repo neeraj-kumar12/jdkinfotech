@@ -1,0 +1,440 @@
+@import '../shared.module.css';
+
+.dashboardLayout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.mainContent {
+    flex: 1;
+    margin-left: 260px;
+    margin-top: 108px;
+    padding: 1rem;
+    background: linear-gradient(to bottom, #f1f5f9, #f8fafc);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.contentWrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.pageHeader {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.headerLeft {
+    flex: 1;
+}
+
+.headerActions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.pageHeader h1 {
+    color: var(--foreground);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.pageHeader p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.downloadAllBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.downloadAllBtn:hover {
+    background: var(--primary-hover, #2563eb);
+    transform: translateY(-1px);
+}
+
+/* Fee Content */
+.feeContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Fee Summary */
+.feeSummary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.summaryCard {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.summaryCard h3 {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.summaryAmount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.paidAmount {
+    color: #10b981;
+}
+
+.pendingAmount {
+    color: #f59e0b;
+}
+
+/* Fee Container */
+.feeContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Fee Cards */
+.feeCard {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+.feeCard:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.feeCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.feeTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.feeDueDate {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    background: var(--background-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+}
+
+.feeCardBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feeAmount,
+.feeStatus {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.amountLabel,
+.statusLabel {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: fit-content;
+}
+
+.status.paid {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status.due {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status.overdue {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.feeCardActions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.payButton {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: var(--primary-color, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payButton:hover {
+    background: var(--primary-hover, #2563eb);
+}
+
+.downloadButton {
+    padding: 0.75rem 1rem;
+    background: var(--background-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.downloadButton:hover {
+    background: var(--background-hover);
+    color: var(--foreground);
+}
+
+.feeDescription {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.feeDescription p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Loading, Error, and Empty States */
+.loadingState,
+.errorState,
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background: var(--card-background);
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.loadingState {
+    gap: 1.5rem;
+}
+
+.loadingSpinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--primary-color, #3b82f6);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loadingState p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.errorState,
+.emptyState {
+    gap: 1rem;
+}
+
+.errorIcon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.emptyStateIcon {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.errorState h3,
+.emptyState h3 {
+    color: var(--foreground);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.errorState p,
+.emptyState p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.retryBtn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.retryBtn:hover {
+    background: var(--primary-hover, #2563eb);
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .feeContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .feeSummary {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .pageHeader {
+        padding: 1.5rem;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .feeCardBody {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .feeCardActions {
+        flex-direction: column;
+    }
+
+    .feeSummary {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .summaryCard {
+        padding: 1.25rem;
+    }
+
+    .summaryAmount {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pageHeader {
+        padding: 1.25rem;
+    }
+
+    .feeCard {
+        padding: 1.25rem;
+    }
+
+    .loadingState,
+    .errorState,
+    .emptyState {
+        min-height: 300px;
+        padding: 2rem 1rem;
+    }
+
+    .loadingSpinner {
+        width: 32px;
+        height: 32px;
+        border-width: 2px;
+    }
+}

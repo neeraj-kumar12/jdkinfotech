@@ -1,0 +1,1275 @@
+.formCard {
+    background-color: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    animation: slideUp 0.5s ease-out;
+    margin: 1rem auto;
+    /* Center the form */
+}
+
+.title {
+    color: var(--foreground);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sectionTitle {
+    color: var(--primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    color: var(--foreground);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.required {
+    color: var(--accent-error, var(--err-color));
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.formGroup input,
+.formGroup select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 1rem;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+}
+
+.formGroup input[type="date"] {
+    font-family: inherit;
+}
+
+.formGroup input[type="tel"],
+.formGroup input[type="email"] {
+    font-family: inherit;
+}
+
+.submitButton {
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 1.2rem;
+    border: none;
+    width: 100%;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.submitButton:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}
+
+/* Scroll to Error CSS Enhancements */
+
+/* Shake animation for error fields */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-8px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+.shake {
+    animation: shake 0.6s ease-in-out;
+}
+
+/* Enhanced error input styling */
+.errorInput {
+    border-color: var(--err-color) !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+    background-color: rgba(220, 38, 38, 0.03);
+    transition: all 0.3s ease;
+}
+
+.errorInput:focus {
+    border-color: var(--err-color) !important;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.25) !important;
+    outline: none;
+}
+
+/* Highlight animation when scrolling to error */
+@keyframes highlight {
+    0% {
+        background-color: rgba(220, 38, 38, 0.1);
+        transform: scale(1);
+    }
+
+    50% {
+        background-color: rgba(220, 38, 38, 0.2);
+        transform: scale(1.02);
+    }
+
+    100% {
+        background-color: rgba(220, 38, 38, 0.03);
+        transform: scale(1);
+    }
+}
+
+.errorInput.highlight {
+    animation: highlight 1s ease-in-out;
+}
+
+/* Smooth focus transition */
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Loading state for submit button */
+.submitButton.loading {
+    background-color: var(--text-secondary);
+    cursor: not-allowed;
+    position: relative;
+    overflow: hidden;
+}
+
+.submitButton.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Enhanced field error styling */
+.fieldError {
+    display: flex;
+    align-items: center;
+    color: var(--err-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    animation: slideInError 0.3s ease-out;
+    padding: 0.25rem 0;
+}
+
+.fieldError::before {
+    line-height: 1.0;
+    content: '⚠';
+    font-size: 0.875rem;
+    color: var(--err-color);
+    flex-shrink: 0;
+}
+
+@keyframes slideInError {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 3rem;
+    }
+}
+
+/* Error summary at top of form */
+.errorSummary {
+    background-color: var(--err-lighter);
+    border: 1px solid var(--err-light);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    animation: slideInError 0.3s ease-out;
+}
+
+.errorSummary h3 {
+    color: var(--err-color);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.errorSummary h3::before {
+    content: '❌';
+    font-size: 1.125rem;
+}
+
+.errorSummary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.errorSummary li {
+    color: var(--err-color);
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.errorSummary li:hover {
+    background-color: rgba(220, 38, 38, 0.1);
+    padding-left: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.errorSummary li::before {
+    content: '→';
+    margin-right: 0.5rem;
+    color: var(--err-color);
+    font-weight: bold;
+}
+
+/* AuthFormErrors.module.css */
+
+/* Base Error Styles */
+.error {
+    color: var(--accent-error);
+    background-color: var(--err-lighter);
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--err-light);
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Field Error Messages */
+.fieldError {
+    color: var(--accent-error);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.fieldError::before {
+    content: "⚠";
+    font-size: 0.875rem;
+}
+
+/* Error Input Styling */
+.errorInput {
+    border-color: var(--accent-error) !important;
+    background-color: var(--err-lighter) !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+.errorInput:focus {
+    box-shadow: 0 0 0 3px rgba(var(--accent-error), 0.1) !important;
+    outline: none;
+}
+
+/* Select Dropdown Errors */
+.errorSelect .selectHeader {
+    border-color: var(--accent-error) !important;
+    background-color: var(--err-lighter) !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+.errorSelect .selectHeader:focus {
+    box-shadow: 0 0 0 3px rgba(var(--accent-error), 0.1) !important;
+}
+
+/* Error Summary (for multiple errors) */
+.errorSummary {
+    background-color: var(--err-lighter);
+    border: 1px solid var(--err-light);
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.errorSummary h3 {
+    color: var(--accent-error);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.errorSummary h3::before {
+    content: "❌";
+    font-size: 1.125rem;
+}
+
+.errorSummary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.errorSummary li {
+    color: var(--accent-error);
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.errorSummary li:hover {
+    background-color: rgba(var(--accent-error), 0.05);
+    padding-left: 0.5rem;
+}
+
+.errorSummary li::before {
+    content: "→";
+    margin-right: 0.5rem;
+    color: var(--accent-error);
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+    .error {
+        padding: 0.625rem;
+        font-size: 0.8125rem;
+    }
+
+    .fieldError {
+        font-size: 0.6875rem;
+    }
+
+    .errorSummary {
+        padding: 0.75rem;
+    }
+}
+
+/* Highlight animation for error fields */
+@keyframes pulseError {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(var(--accent-error), 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(var(--accent-error), 0);
+    }
+}
+
+.highlightError {
+    animation: pulseError 1.5s ease-out;
+    position: relative;
+}
+
+.highlightError::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid var(--accent-error);
+    border-radius: 0.375rem;
+    animation: fadeBorder 2s ease-out forwards;
+}
+
+@keyframes fadeBorder {
+    to {
+        opacity: 0;
+    }
+}
+
+/* Required field indicator for errors */
+.formGroup.hasError .required {
+    color: var(--accent-error);
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+
+/* Form container scroll padding */
+.formCard {
+    scroll-padding-top: 2rem;
+}
+
+/* Section title scroll margin */
+.sectionTitle {
+    scroll-margin-top: 2rem;
+}
+
+/* Form group scroll margin */
+.formGroup {
+    scroll-margin-top: 1rem;
+}
+
+/* Pulse animation for required asterisks when there are errors */
+.formGroup.hasError .required {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 867px) {
+    .shake {
+        animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes shake {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        25%,
+        75% {
+            transform: translateX(-4px);
+        }
+
+        50% {
+            transform: translateX(4px);
+        }
+    }
+
+    .errorSummary {
+        padding: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .fieldError {
+        font-size: 0.8125rem;
+        margin-top: 0.25rem;
+    }
+}
+
+.error {
+    background-color: var(--accent-error);
+    color: var(--text-light);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.switchText {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.switchText a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switchText a:hover {
+    text-decoration: underline;
+}
+
+/* Login form - single column layout */
+.form:has(.formGroup:only-child) {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Two-column layout for registration form */
+@media (min-width: 868px) {
+    .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        column-gap: 2rem;
+    }
+
+    /* For login form, ensure single column */
+    .form:has([name="instituteId"]):not(:has(.sectionTitle)) {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form:has([name="instituteId"]):not(:has(.sectionTitle)) .formGroup {
+        width: 100%;
+    }
+
+    .sectionTitle {
+        grid-column: 1 / -1;
+        margin-top: 2.5rem;
+    }
+
+    .sectionTitle:first-of-type {
+        margin-top: 0;
+    }
+
+    .submitButton,
+    .error,
+    .switchText {
+        grid-column: 1 / -1;
+    }
+
+    /* Full width for certain fields */
+    .formGroup:has(input[type="email"]),
+    .formGroup:has(input[name="fullName"]),
+    .formGroup:has(input[name="fatherName"]),
+    .formGroup:has(input[name="batch"]),
+    .formGroup:has(input[name="motherName"]) {
+        grid-column: 1 / -1 !important;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Textarea specific styling */
+.formGroup textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 100px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.formGroup textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+}
+
+.formGroup textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Number input specific styling */
+.formGroup input[type="number"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    -moz-appearance: textfield;
+    /* Firefox - remove spinner */
+    appearance: textfield;
+}
+
+/* Remove spinner arrows for webkit browsers */
+.formGroup input[type="number"]::-webkit-outer-spin-button,
+.formGroup input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.formGroup input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+}
+
+/* Error states for textarea and number inputs */
+.formGroup textarea.errorInput,
+.formGroup input[type="number"].errorInput {
+    border-color: var(--err-color) !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+    background-color: rgba(220, 38, 38, 0.03);
+}
+
+.formGroup textarea.errorInput:focus,
+.formGroup input[type="number"].errorInput:focus {
+    border-color: var(--err-color) !important;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* Disabled state styling */
+.formGroup textarea:disabled,
+.formGroup input[type="number"]:disabled {
+    background-color: var(--background-disabled, rgba(0, 0, 0, 0.05));
+    color: var(--text-disabled, rgba(0, 0, 0, 0.5));
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Layout adjustments for specific fields */
+.formGroup:has(textarea[name="address"]),
+.captchaContainer {
+    grid-column: 1 / -1 !important;
+    /* Force address to full width */
+}
+
+.formGroup:has(select[name="state"]),
+.formGroup:has(input[name="state"]) {
+    order: 999;
+    /* Move state field to bottom of its grid container */
+}
+
+.captchaContainer {
+    border-radius: 4px;
+    text-align: center;
+}
+
+.captchaMessage {
+    color: var(--err-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+    text-align: center;
+}
+
+
+.passwordInputContainer {
+    position: relative;
+    width: 100%;
+}
+
+.passwordInputContainer input {
+    padding-right: 40px;
+    /* Make space for the eye icon */
+    width: 100%;
+}
+
+.showPasswordButton {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 5px;
+}
+
+.showPasswordButton:hover {
+    color: var(--text-primary);
+}
+
+.showPasswordButton:focus {
+    outline: none;
+    color: var(--primary-color);
+}
+
+/* AuthFormErrors.module.css */
+
+/* Base Error Styles */
+.error {
+    color: var(--accent-error);
+    background-color: var(--err-lighter);
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--err-light);
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Field Error Messages */
+.fieldError {
+    color: var(--accent-error);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.fieldError::before {
+    content: "⚠";
+    font-size: 0.875rem;
+}
+
+/* Error Input Styling */
+.errorInput {
+    border-color: var(--accent-error) !important;
+    background-color: var(--err-lighter) !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+.errorInput:focus {
+    box-shadow: 0 0 0 3px rgba(var(--accent-error), 0.1) !important;
+    outline: none;
+}
+
+/* Select Dropdown Errors */
+.errorSelect .selectHeader {
+    border-color: var(--accent-error) !important;
+    background-color: var(--err-lighter) !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+.errorSelect .selectHeader:focus {
+    box-shadow: 0 0 0 3px rgba(var(--accent-error), 0.1) !important;
+}
+
+/* Error Summary (for multiple errors) */
+.errorSummary {
+    background-color: var(--err-lighter);
+    border: 1px solid var(--err-light);
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.errorSummary h3 {
+    color: var(--accent-error);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.errorSummary h3::before {
+    content: "❌";
+    font-size: 1.125rem;
+}
+
+.errorSummary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.errorSummary li {
+    color: var(--accent-error);
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.errorSummary li:hover {
+    background-color: rgba(var(--accent-error), 0.05);
+    padding-left: 0.5rem;
+}
+
+.errorSummary li::before {
+    content: "→";
+    margin-right: 0.5rem;
+    color: var(--accent-error);
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes loaderProgress {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .successCard {
+        padding: 1.5rem;
+    }
+
+    .successIcon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .successTitle {
+        font-size: 1.5rem;
+    }
+
+    .successMessage {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .successCard {
+        padding: 1.25rem;
+        width: 95%;
+    }
+
+    .successIcon {
+        font-size: 2.5rem;
+    }
+
+    .successTitle {
+        font-size: 1.3rem;
+    }
+
+    .successMessage {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+    .error {
+        padding: 0.625rem;
+        font-size: 0.8125rem;
+    }
+
+    .fieldError {
+        font-size: 0.6875rem;
+    }
+
+    .errorSummary {
+        padding: 0.75rem;
+    }
+}
+
+/* Highlight animation for error fields */
+@keyframes pulseError {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(var(--accent-error), 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(var(--accent-error), 0);
+    }
+}
+
+.highlightError {
+    animation: pulseError 1.5s ease-out;
+    position: relative;
+}
+
+.highlightError::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid var(--accent-error);
+    border-radius: 0.375rem;
+    animation: fadeBorder 2s ease-out forwards;
+}
+
+@keyframes fadeBorder {
+    to {
+        opacity: 0;
+    }
+}
+
+/* Required field indicator for errors */
+.formGroup.hasError .required {
+    color: var(--accent-error);
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Responsive reCAPTCHA for smaller screens */
+@media (max-width: 480px) {
+    .recaptchaContainer .g-recaptcha {
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .recaptchaContainer .g-recaptcha {
+        transform: scale(0.75);
+        transform-origin: center;
+    }
+}
+
+
+/* Mobile responsive adjustments */
+@media (max-width: 867px) {
+
+    .formGroup textarea,
+    .formGroup input[type="number"] {
+        padding: 0.875rem;
+        font-size: 0.95rem;
+    }
+
+    .formGroup textarea {
+        min-height: 80px;
+    }
+
+    /* Reset order on mobile since it's single column */
+    .formGroup:has(select[name="state"]),
+    .formGroup:has(input[name="state"]) {
+        order: unset;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .formGroup textarea,
+    .formGroup input[type="number"] {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .formGroup textarea {
+        min-height: 70px;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 867px) {
+    .formCard {
+        padding: 1rem 0;
+        margin: 1rem 0;
+        box-shadow: none;
+        max-height: none;
+        border-radius: 0.5rem;
+    }
+
+    .form {
+        gap: 1rem;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .formGroup {
+        width: 100% !important;
+        grid-column: unset !important;
+    }
+
+    .sectionTitle {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .formGroup {
+        gap: 0.25rem;
+    }
+
+    .formGroup input,
+    .formGroup select {
+        padding: 0.875rem;
+        font-size: 0.95rem;
+    }
+
+    .submitButton {
+        padding: 1rem;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .switchText {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .formCard {
+        padding: 0rem;
+        margin: 0.5rem;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    .sectionTitle {
+        font-size: 1rem;
+        margin-top: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+
+/* Scrollbar styling for the form card */
+.formCard::-webkit-scrollbar {
+    width: 6px;
+}
+
+.formCard::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 3px;
+}
+
+.formCard::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.formCard::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}

@@ -1,0 +1,160 @@
+/* Common styles for all dashboard pages */
+
+.dashboardLayout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    width: 100%;
+}
+
+.mainContent {
+    flex: 1;
+    margin-left: 260px;  /* Initial sidebar width */
+    margin-top: 108px;   /* Initial navbar height */
+    padding: 2rem;
+    background: linear-gradient(to bottom, #f1f5f9, #f8fafc);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.mainContentCollapsed {
+    margin-left: 0;
+}
+
+.contentWrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.pageHeader {
+    background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.headerLeft {
+    flex: 1;
+    min-width: 200px;
+}
+
+.pageHeader h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.pageHeader p {
+    color: #64748b;
+    font-size: clamp(0.875rem, 2.5vw, 1.25rem);
+}
+
+/* Grid layouts for all pages */
+.gridContainer {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    width: 100%;
+}
+
+/* Card styles used across pages */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles used across pages */
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1280px) {
+    .mainContent {
+        padding: 1.5rem;
+    }
+
+    .pageHeader {
+        padding: 1.75rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 0;
+        margin-top: 80px;
+    }
+
+    .contentWrapper {
+        padding: 0 0.75rem;
+    }
+
+    .pageHeader {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .gridContainer {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        padding: 1rem;
+    }
+
+    .pageHeader {
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .headerContent {
+        flex-direction: column;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainContent {
+        margin-top: 64px;
+        padding: 0.75rem;
+    }
+
+    .contentWrapper {
+        padding: 0 0.5rem;
+    }
+
+    .gridContainer {
+        gap: 0.75rem;
+    }
+}

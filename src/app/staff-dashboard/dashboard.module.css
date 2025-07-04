@@ -1,0 +1,735 @@
+/* Dashboard Layout - Fully Responsive */
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background-secondary);
+  width: 100%;
+  position: relative;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 260px;
+  margin-top: 108px;
+  padding: 1rem;
+  min-height: calc(100vh - 108px);
+  background: linear-gradient(to bottom, var(--background-tertiary), var(--background-secondary));
+  position: relative;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  box-sizing: border-box;
+}
+
+.mainContentCollapsed {
+  margin-left: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
+.contentWrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(135deg, var(--background), var(--background-secondary));
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pageHeaderContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.pageHeader h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.pageHeader p {
+  text-transform: capitalize;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Institute Status Component */
+.instituteStatus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  flex-shrink: 0;
+}
+
+.instituteStatus span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  min-width: 6rem;
+  height: 2.5rem;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.025em;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Status Variants */
+.open {
+  background: linear-gradient(135deg, var(--accent-success), var(--color-success-dark));
+  color: var(--text-light);
+  border-color: var(--color-success-dark);
+}
+
+.closed {
+  background: linear-gradient(135deg, var(--err-color), var(--accent-error));
+  color: var(--text-light);
+  border-color: var(--accent-danger);
+}
+
+/* Section Header */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.refreshBtn {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.refreshBtn:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.refreshBtn:disabled {
+  background-color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+/* Message Styles */
+.messageSuccess,
+.messageError {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  animation: slideUp 0.3s ease-out;
+}
+
+.messageSuccess {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-left: 4px solid #4CAF50;
+}
+
+.messageError {
+  background: #ffebee;
+  color: #c62828;
+  border-left: 4px solid #f44336;
+}
+
+.clearMessageBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: inherit;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.clearMessageBtn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Loading and Empty States */
+.loadingContainer,
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  background: var(--background);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.loadingContainer p,
+.emptyState p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+/* Student Grid */
+.studentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Student Card */
+.studentCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.studentCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.studentInfo {
+  margin-bottom: 1rem;
+}
+
+.studentName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 0.5rem 0;
+}
+
+.studentEmail {
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  word-break: break-all;
+}
+
+.studentDetails {
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.instituteId {
+  color: var(--text-disabled);
+  margin: 0;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.viewBtn,
+.acceptBtn,
+.rejectBtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 80px;
+}
+
+.viewBtn {
+  background-color: var(--background-tertiary);
+  color: var(--foreground);
+  border: 1px solid var(--border-color);
+}
+
+.viewBtn:hover:not(:disabled) {
+  background-color: var(--hover-background);
+}
+
+.acceptBtn {
+  background-color: var(--accent-success);
+  color: var(--text-light);
+}
+
+.acceptBtn:hover:not(:disabled) {
+  background-color: var(--color-success-dark);
+}
+
+.rejectBtn {
+  background-color: var(--err-color);
+  color: var(--text-light);
+}
+
+.rejectBtn:hover:not(:disabled) {
+  background-color: var(--accent-danger);
+}
+
+.viewBtn:disabled,
+.acceptBtn:disabled,
+.rejectBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal {
+  background: var(--background);
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s ease-out;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background: var(--background);
+  z-index: 10;
+}
+
+.modalHeader h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-disabled);
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.closeBtn:hover {
+  color: var(--text-secondary);
+  background-color: var(--hover-background);
+}
+
+.modalContent {
+  padding: 1.5rem;
+}
+
+/* Student Profile Header */
+.studentProfileHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profileSummary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.profileField {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldLabel {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.fieldValue {
+  font-size: 1rem;
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+/* Info Tabs */
+.infoTabs {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoTab {
+  background-color: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.tabHeader {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.infoField {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Status Badges */
+.verifiedBadge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--accent-success-light);
+  color: var(--accent-success-dark);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.unverifiedBadge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--err-lighter);
+  color: var(--err-color);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.activeBadge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--accent-success-light);
+  color: var(--accent-success-dark);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.inactiveBadge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--err-lighter);
+  color: var(--err-color);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Confirmation Modal */
+.confirmModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.confirmModal {
+  background: var(--background);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  animation: slideUp 0.3s ease-out;
+  box-shadow: var(--shadow-lg);
+}
+
+.confirmModal h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 1rem 0;
+}
+
+.confirmModal p {
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.confirmButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.confirmCancel {
+  padding: 0.75rem 1.5rem;
+  background: var(--background-tertiary);
+  color: var(--foreground);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex: 1;
+}
+
+.confirmCancel:hover {
+  background: var(--hover-background);
+}
+
+.confirmAccept {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-success);
+  color: var(--text-light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex: 1;
+}
+
+.confirmAccept:hover:not(:disabled) {
+  background: var(--color-success-dark);
+}
+
+.confirmReject {
+  padding: 0.75rem 1.5rem;
+  background: var(--err-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex: 1;
+}
+
+.confirmReject:hover:not(:disabled) {
+  background: var(--accent-danger);
+}
+
+.confirmAccept:disabled,
+.confirmReject:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .pageHeader {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .mainContent {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .instituteStatus {
+    align-self: stretch;
+    width: 100%;
+    min-width: auto;
+    display: flex;
+    justify-content: stretch;
+  }
+
+  .statusContainer {
+    align-items: flex-start;
+    width: 100%;
+    display: flex;
+  }
+
+  .instituteStatus span {
+    width: 100%;
+    display: block;
+    flex: 1;
+    min-width: auto;
+    justify-content: center;
+  }
+
+  .studentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+  }
+
+  .pageHeader {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .instituteStatus {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+  }
+
+  .statusContainer {
+    width: 100%;
+    display: flex;
+  }
+
+  .instituteStatus span {
+    font-size: 1rem;
+    width: 100%;
+    min-width: auto;
+    flex: 1;
+    justify-content: center;
+    height: 2.7rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .instituteStatus span::before {
+    width: 0.25rem;
+    height: 0.25rem;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+
+  .confirmButtons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 320px) {
+  .instituteStatus {
+    width: 100%;
+    display: flex;
+  }
+
+  .statusContainer {
+    width: 100%;
+    display: flex;
+  }
+
+  .instituteStatus span {
+    width: 100%;
+    flex: 1;
+    min-width: auto;
+    justify-content: center;
+  }
+}
