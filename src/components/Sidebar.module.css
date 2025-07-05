@@ -11,7 +11,7 @@
     position: fixed;
     top: 32px;
     left: 0;
-    height: calc(100vh - 32px);
+    height: calc(100svh - 32px);
     z-index: 16;
     box-shadow: var(--shadow-sm);
     transform: translateX(0);

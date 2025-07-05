@@ -175,32 +175,6 @@ export default function ProfilePage() {
                 <h1>My Profile</h1>
                 <p>View and manage your profile information</p>
               </div>
-              <div className={styles.headerRight}>
-                {isEditing ? (
-                  <div className={styles.editActions}>
-                    <button 
-                      onClick={handleSave}
-                      className={styles.saveButton}
-                      disabled={loading}
-                    >
-                      {loading ? 'Saving...' : 'Save Changes'}
-                    </button>
-                    <button 
-                      onClick={() => setIsEditing(false)}
-                      className={styles.cancelButton}
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                ) : (
-                  <button 
-                    onClick={() => setIsEditing(true)}
-                    className={styles.editButton}
-                  >
-                    Edit Profile
-                  </button>
-                )}
-              </div>
             </div>
           </header>
 

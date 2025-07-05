@@ -28,7 +28,7 @@ export default function LoginPage() {
         <div className={styles.loginContainer}>
             <div className={styles.header}>
                 <div className={styles.logoSection}>
-                    <h1>BCEI Institute Portal</h1>
+                    <h1>JDK Infotech Portal</h1>
                 </div>
             </div>
 

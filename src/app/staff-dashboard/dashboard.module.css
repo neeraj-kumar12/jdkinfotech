@@ -8,16 +8,16 @@
 }
 
 .mainContent {
-  flex: 1;
-  margin-left: 260px;
-  margin-top: 108px;
-  padding: 1rem;
-  min-height: calc(100vh - 108px);
-  background: linear-gradient(to bottom, var(--background-tertiary), var(--background-secondary));
-  position: relative;
-  transition: all 0.3s ease;
-  width: calc(100% - 260px);
-  box-sizing: border-box;
+    flex: 1;
+    margin-left: 260px;
+    margin-top: 108px;
+    padding: 1rem;
+    background-color: var(--background-secondary);
+    min-height: calc(100vh - 120px);
+    position: relative;
+    transition: all 0.3s ease;
+    margin-left: 260px;
+    overflow-x: hidden;
 }
 
 .mainContentCollapsed {
