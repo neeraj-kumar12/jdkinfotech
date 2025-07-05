@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   reactStrictMode: true,
   trailingSlash: true,
-  
+
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -23,9 +22,7 @@ const nextConfig = {
 
   env: {
     NEXT_PUBLIC_SITE_NAME: 'JDK Infotech',
-    NEXT_PUBLIC_BASE_URL: process.env.NODE_ENV === 'production' 
-      ? 'https://jdkinfotech.in' 
-      : 'http://localhost:3000',
+    NEXT_PUBLIC_BASE_URL: process.env.NODE_ENV === 'production' ? 'https://jdkinfotech.in' : 'http://localhost:3000',
   }
 };
 

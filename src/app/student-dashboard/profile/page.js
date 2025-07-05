@@ -176,9 +176,6 @@ export default function ProfilePage() {
                 <p>View and manage your profile information</p>
               </div>
               <div className={styles.headerRight}>
-                <p className={styles.instituteId}>
-                  ID: {studentData.accountInfo.instituteId}
-                </p>
                 {isEditing ? (
                   <div className={styles.editActions}>
                     <button 

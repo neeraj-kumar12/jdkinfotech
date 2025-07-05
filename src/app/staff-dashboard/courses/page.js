@@ -12,7 +12,7 @@ export default function Page() {
         id: 1,
         code: "CS301",
         name: "Diploma of Multingual Computer Application",
-        instructor: "Dharmendnder Thakur",
+        instructor: "Dharmendnder Sharma",
         schedule: "10:00 AM - 06:00 PM",
         status: "In Progress",
         assignments: 3,
